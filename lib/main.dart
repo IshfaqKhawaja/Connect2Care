@@ -1,5 +1,6 @@
 import 'package:connect2care/screens/body.dart';
 import 'package:connect2care/screens/chat.dart';
+import 'package:connect2care/screens/home.dart';
 import 'package:connect2care/src/welcomePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,15 +13,7 @@ void main() async {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Connect2Care',
-      home: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (ctx, userSnapShot) {
-          if (userSnapShot.hasData) {
-            return Body();
-          }
-          return WelcomePage();
-        },
-      ),
+      home: Home(),
       theme: ThemeData(
         primaryColor: Colors.purple,
         accentColor: Colors.redAccent,
