@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
   bool init = true;
 
   void changeInit() async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(Duration(seconds: 3));
     setState(() => init = false);
   }
 

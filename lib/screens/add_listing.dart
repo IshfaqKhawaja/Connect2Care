@@ -52,24 +52,24 @@ class _AddListingState extends State<AddListing> {
     });
   }
 
-  //Ask for Permission to use Location
-  Future<void> requestPermission(PH.Permission permission) async {
-    final status = await permission.request();
+  // //Ask for Permission to use Location
+  // Future<void> requestPermission(PH.Permission permission) async {
+  //   final status = await permission.request();
 
-    setState(() {
-      print(status);
-      _permissionStatus = status;
-      print(_permissionStatus);
-    });
-  }
+  //   setState(() {
+  //     print(status);
+  //     _permissionStatus = status;
+  //     print(_permissionStatus);
+  //   });
+  // }
 
   //Using Geolocator
   void _determinePosition() async {
-    var permissionStatus = await PH.Permission.location.status;
-    if (permissionStatus.isGranted) {
-      print('Requersting Permission');
-      await PH.Permission.location.request();
-    }
+    // var permissionStatus = await PH.Permission.location.status;
+    // if (!permissionStatus.isGranted) {
+    //   print('Requesting Permission');
+    //   await PH.Permission.location.request();
+    // }
 
     Position _locationData;
     bool serviceEnabled;

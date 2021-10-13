@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart' as SK;
+import 'package:permission_handler/permission_handler.dart' as PH;
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -14,6 +15,19 @@ class _SplashScreenState extends State<SplashScreen> {
     color: Colors.white,
     size: 50.0,
   );
+  void requestPermission() async {
+    var permissionStatus = await PH.Permission.location.status;
+    if (!permissionStatus.isGranted) {
+      print('Requesting Permission');
+      await PH.Permission.location.request();
+    }
+  }
+
+  void initState() {
+    super.initState();
+    requestPermission();
+  }
+
   Widget _title() {
     return RichText(
       textAlign: TextAlign.center,
